@@ -1,7 +1,7 @@
 % The MetSim program
 % Author: Jan-Tore Horn
 % Date: August 2017
-% License: GPL
+% License: MIT
 
 function X = metsim(varargin)
 
@@ -18,6 +18,7 @@ fgetl(fid); % Dummy
 n = fscanf(fid,'%f',1);fgets(fid); % Number of variables
 varnames = textscan(fid,repmat('%s ',1,n),1,'CommentStyle','-'); % Variable names
 varunits = textscan(fid,repmat('%s ',1,n),1,'CommentStyle','-'); % Variable units
+outputvars = textscan(fid,repmat('%s ',1,n),1,'CommentStyle','-'); % Variable names in output file
 vardists = textscan(fid,repmat('%s ',1,n),1,'CommentStyle','-'); % Variable distributions
 depfile = fscanf(fid,'%s ',1);fgetl(fid); % Dependency file
 paramfile = fscanf(fid,'%s ',1);fgetl(fid); % Parameter file
@@ -34,7 +35,7 @@ plotdepfile = fscanf(fid,'%s',1);fgetl(fid);
 fclose(fid);
 
 % Default values
-plott = 1;
+plott = 0;
 
 % Manual inputs overriding inputfiles
 switch nargin
@@ -42,7 +43,7 @@ switch nargin
         N = varargin{1};
     case 2
         N = varargin{1};
-        plott = 0;
+        plott = varargin{2};
 end
 
 % Make Octave find functions
@@ -140,7 +141,12 @@ X(1:N_init,:)=[]; % Remove initialization
 %% Post-processing
 
 % Save seastates
-dlmwrite([outputname,'.out'],X,'delimiter',' ','precision','%10.2f');
+fid = fopen([outputname,'.out'],'w');
+for i=1:length(outputvars)
+    fprintf(fid,'%11s ',outputvars{i}{1});
+end
+fprintf(fid,'\n');
+dlmwrite([outputname,'.out'],X,'delimiter',' ','precision','%10.2f','-append');
 
 % Exit if plotting is not requested
 if plott ~= 1

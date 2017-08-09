@@ -1,7 +1,8 @@
 **** Input file to MetSim ****
 11                                 - Number of variables to be modelled
-U \Theta_u H_S^w T_P^w \Theta_w H_S^s T_P^s \Theta_s H_t V_t \Theta_t      - Variable names
-m/s deg m s deg m s deg m m/s deg    - Variable units
+U \Theta_u H_S^w T_P^w \Theta_w H_S^s T_P^s \Theta_s H_t V_t \Theta_t      - Variable names to be used in plots
+m/s deg m s deg m s deg m m/s deg    - Variable units used in plots
+U100 THETA_U HS_W TP_W THETA_RW HS_S TP_S THETA_S H_T V_T THETA_T - Variable names as header in outputfile
 w2 vm3 w3 ln n w2 ln vm2 n2 w2 vm2   - Distribution types
 ./input/dependencies.txt         - File for dependency model ( 0 and 1 matrix)
 ./input/fittingparam.txt                     - File for fitted parameters
