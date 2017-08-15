@@ -13,6 +13,7 @@ function X = metsim(varargin)
 % Read inputfile
 inpfile = 'metsim.inp';
 fid = fopen(inpfile,'r');
+path = fileparts(mfilename('fullpath'));
 
 fgetl(fid); % Dummy
 n = fscanf(fid,'%f',1);fgets(fid); % Number of variables

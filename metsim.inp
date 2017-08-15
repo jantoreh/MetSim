@@ -4,8 +4,8 @@ U \Theta_u H_S^w T_P^w \Theta_w H_S^s T_P^s \Theta_s H_t V_t \Theta_t      - Var
 m/s deg m s deg m s deg m m/s deg    - Variable units used in plots
 U100 THETA_U HS_W TP_W THETA_RW HS_S TP_S THETA_S H_T V_T THETA_T - Variable names as header in outputfile
 w2 vm3 w3 ln n w2 ln vm2 n2 w2 vm2   - Distribution types
-./input/dependencies.txt         - File for dependency model ( 0 and 1 matrix)
-./input/fittingparam.txt                     - File for fitted parameters
+C:/Users/jantoreh/Dropbox/MATLAB/MetSim/input/dependencies.txt         - File for dependency model ( 0 and 1 matrix)
+C:/Users/jantoreh/Dropbox/MATLAB/MetSim/input/fittingparam.txt                     - File for fitted parameters
 **** Simulation control ****
 200   - Number of initialization simulations (rejected in the Gibbs sampling)
 10 200 2 5 0 0.5 8 0 0 0.3 90 - Starting point
@@ -14,8 +14,8 @@ w2 vm3 w3 ln n w2 ln vm2 n2 w2 vm2   - Distribution types
 35 360 12 17 90 5 20 360 2 3 360 - Simulation upper limit
 300 - Seed number
 **** Output control ****
-./output/seastates                - Outputfile name (.out for results, .gif for animation and .eps for figure)
-./input/plot.txt                      - Inputfile with dependencies for plotting (same size as dependency model)
+./seastates                - Outputfile name (.out for results, .gif for animation and .eps for figure)
+C:/Users/jantoreh/Dropbox/MATLAB/MetSim/input/plot.txt                      - Inputfile with dependencies for plotting (same size as dependency model)
 
 **** Guidance notes below here ****
 
